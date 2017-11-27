@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.WindowManager
 import kotlinx.android.synthetic.main.activity_welcome.*
 
-class WelcomeActivity : AppCompatActivity() {
+class WelcomeActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
