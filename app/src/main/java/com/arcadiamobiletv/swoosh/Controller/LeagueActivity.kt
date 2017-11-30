@@ -5,13 +5,14 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import android.widget.Toast
-import com.arcadiamobiletv.swoosh.Utilities.EXTRA_LEAGUE
+import com.arcadiamobiletv.swoosh.Model.Player
 import com.arcadiamobiletv.swoosh.R
+import com.arcadiamobiletv.swoosh.Utilities.EXTRA_PLAYER
 import kotlinx.android.synthetic.main.activity_league.*
 
 class LeagueActivity : BaseActivity() {
 
-    var selectedLeague = ""
+    var player = Player("","")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,28 +24,28 @@ class LeagueActivity : BaseActivity() {
 
         womensLeagueBtn.isChecked = false
         coedLeagueBtn.isChecked = false
-        selectedLeague = "Mens"
+        player.league = "Mens"
     }
 
     fun womensBtnClicked(view: View){
 
         mensLeagueBtn.isChecked = false
         coedLeagueBtn.isChecked = false
-        selectedLeague = "Womens"
+        player.league = "Womens"
     }
 
 
     fun coedBtnClicked(view: View){
         womensLeagueBtn.isChecked = false
         mensLeagueBtn.isChecked = false
-        selectedLeague = "Coed"
+        player.league = "Coed"
 
     }
 
     fun leagueNextClicked(view: View){
-    if (selectedLeague != "") {
+    if (player.league != "") {
     val skillActivity = Intent(this, SkillActivity::class.java)
-        skillActivity.putExtra(EXTRA_LEAGUE, selectedLeague)
+        skillActivity.putExtra(EXTRA_PLAYER, player)
         startActivity(skillActivity)
 
     }else {
